@@ -13,7 +13,7 @@ public class PedidoListener {
     private final Logger logger = LoggerFactory.getLogger(PedidoListener.class);
 
     // metodo que será chamado quando uma mensagem for recebida
-    @RabbitListener(queues = "pedidos.v1.notificacao")
+    @RabbitListener(queues = "pedidos.v1.processamento")
     public void enviarNotificacao(Pedido pedido){
         pedido.setStatus(Status.PROCESSADO);
         logger.info("Notificacao gerada: {}", pedido.toString());
