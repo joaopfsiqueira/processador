@@ -31,14 +31,14 @@ public class RabbitMQConfig {
 
     // Criação da fila
     @Bean
-    public Queue notificacaoQueue() {
+    public Queue processadorQueue() {
         return new Queue(queueName);
     }
 
     // Criação do binding da fila com o exchange
     @Bean
     public Binding bindingQueue() {
-        return BindingBuilder.bind(notificacaoQueue()).to(pedidosExchange());
+        return BindingBuilder.bind(processadorQueue()).to(pedidosExchange());
 
     }
 
